@@ -1,0 +1,36 @@
+{
+  "runtime": {
+    "timezone": "Asia/Shanghai",
+    "order_execution_enabled": false,
+    "data_lake": "<PlaceHolder>\\data_lake"
+  },
+  "models": {
+    "external_config": "<PlaceHolder>\\configure_list.json",
+    "test_llm": "deepseek-v4-flash",
+    "document_mllm": "qwen3.8-max",
+    "research_codex_env": "ROOFTOP_CODEX_MODEL",
+    "embedding": "Qwen/Qwen3-Embedding-0.6B",
+    "embedding_dimension": 512,
+    "embedding_cache": "<PlaceHolder>\\data_lake\\models"
+  },
+  "free_data_sources": {
+    "daily_primary": "akshare",
+    "realtime_order": ["tencent", "eastmoney", "local_cache"],
+    "minute_order": ["tencent", "eastmoney", "local_cache"],
+    "minute_history_order": ["eastmoney", "tdx_public", "baostock", "local_cache"],
+    "optional_desktop_order": ["tdx_local", "qmt", "futu"],
+    "live_refresh_enabled_env": "ROOFTOP_LIVE_REFRESH_ENABLED",
+    "market_symbols_env": "ROOFTOP_MARKET_SYMBOLS",
+    "quote_poll_seconds_env": "ROOFTOP_MARKET_POLL_SECONDS",
+    "minute_refresh_seconds_env": "ROOFTOP_MINUTE_REFRESH_SECONDS",
+    "daily_refresh_seconds_env": "ROOFTOP_DAILY_REFRESH_SECONDS",
+    "minute_history_refresh_seconds_env": "ROOFTOP_HISTORY_REFRESH_SECONDS",
+    "qmt_home_env": "ROOFTOP_QMT_HOME",
+    "tdx_home_env": "ROOFTOP_TDX_HOME",
+    "futu_local_port": 11111
+  },
+  "email": {
+    "default_mode": "dry_run",
+    "send_enabled_env": "ROOFTOP_EMAIL_SEND_ENABLED"
+  }
+}

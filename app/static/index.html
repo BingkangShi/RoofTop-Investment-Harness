@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/rooftop-logo.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="dark">
+  <title>RoofTop Investment Harness · 天台智投</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="RoofTop Investment Harness 天台智投首页">
+        <img class="brand-mark" src="/rooftop-logo.svg" alt="">
+        <span class="brand-copy"><strong>ROOFTOP</strong><small>INVESTMENT HARNESS</small><em>天台智投</em></span>
+      </a>
+      <nav aria-label="主导航">
+        <button class="nav-item active" data-view="overview"><span>◫</span> 总览</button>
+        <button class="nav-item" data-view="research"><span>⌕</span> 情报研究</button>
+        <button class="nav-item" data-view="strategy"><span>⌁</span> 策略与风控</button>
+        <button class="nav-item" data-view="reports"><span>▤</span> 研报库</button>
+        <button class="nav-item" data-view="graphs"><span>◉</span> 事件图观测</button>
+        <button class="nav-item" data-view="chat"><span>✦</span> Agent Chat</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="system-state"><i></i><span>本地系统正常<small>SQLite · 真实 ETF 日线</small></span></div>
+        <button id="methodButton" class="method-button">投资纪律 <span>›</span></button>
+        <p>仅用于分析，不连接券商<br>不构成任何投资建议</p>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">INVESTMENT COMMAND CENTER</p>
+          <h1 id="pageTitle">市场与持仓总览</h1>
+        </div>
+        <div class="top-actions">
+          <div class="asof"><span>数据时点</span><strong id="asOf">—</strong></div>
+          <span id="dataMode" class="demo-pill">● LOCAL / 日频</span>
+          <button class="icon-button" aria-label="通知">◌<b>3</b></button>
+        </div>
+      </header>
+
+      <section id="warning" class="warning-strip" role="status">正在载入本地分析数据…</section>
+
+      <div id="overviewView" class="view active">
+        <section class="market-tape" aria-label="全球市场概览" id="marketTape"></section>
+
+        <section class="summary-grid">
+          <article class="metric-card">
+            <span>持仓市值</span><strong id="portfolioValue">—</strong><small>人民币 · 最近日线估算</small>
+          </article>
+          <article class="metric-card">
+            <span>浮动盈亏</span><strong id="portfolioPnl">—</strong><small>成本由用户快照反推，待对账单核验</small>
+          </article>
+          <article class="metric-card">
+            <span>纪律状态</span><strong id="disciplineState">—</strong><small id="disciplineDetail">等待模型</small>
+          </article>
+          <article class="metric-card accent">
+            <span>证据覆盖度</span><strong>18%</strong><small>正式决策前须提高至阈值</small>
+          </article>
+        </section>
+
+        <section class="main-grid">
+          <article class="panel chart-panel">
+            <div class="panel-head">
+              <div><p class="eyebrow">POSITION MONITOR</p><h2>持仓价格与纪律线 <small id="chartFrequency">日频 · 本地缓存</small></h2></div>
+              <label class="asset-picker">分析标的<select id="assetSelect" aria-label="选择分析标的"></select></label>
+            </div>
+            <div class="chart-toolbar">
+              <div id="periodSelector" class="period-selector" aria-label="图表周期"></div>
+              <label>涨跌颜色<select id="colorConvention"><option value="redUp">红涨绿跌</option><option value="greenUp">绿涨红跌</option></select></label>
+            </div>
+            <div class="quote-row">
+              <div><span id="assetName">—</span><strong id="assetPrice">—</strong></div>
+              <span id="assetPnl" class="change-pill">—</span>
+              <div class="legend"><span class="current">价格</span><span class="cost">成本线</span><span class="stop">止损红线</span><span class="profit">止盈线</span></div>
+            </div>
+            <div id="chart" class="chart" role="img" aria-label="价格趋势和纪律线"></div>
+            <p class="chart-help">鼠标滚轮缩放横轴 · 按住左键拖动 · 悬停查看涨跌/OHLC/换手/量额/区间涨幅 · 右侧筹码分布为量价估算</p>
+            <div class="chart-foot">
+              <span id="volatility">年化波动 —</span><span id="drawdown">最大回撤 —</span><span id="momentum">20日动量 —</span>
+            </div>
+          </article>
+
+          <aside class="panel discipline-panel">
+            <div class="panel-head"><div><p class="eyebrow">RISK DISCIPLINE</p><h2>风险纪律卡</h2></div><span class="lock">只读</span></div>
+            <div id="disciplineCard" class="discipline-card"></div>
+            <div class="line-list" id="lineList"></div>
+            <button id="recheckButton" class="primary-button">重新执行纪律检查</button>
+            <p class="fine-print">模型输出是研究提示，不代替人工决策。系统不会下单。</p>
+          </aside>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel">
+            <div class="panel-head"><div><p class="eyebrow">PORTFOLIO</p><h2>公开演示组合</h2></div><span class="count" id="positionCount">0 项</span></div>
+            <div class="table-wrap"><table><thead><tr><th>标的</th><th>数量</th><th>市值</th><th>盈亏</th><th>纪律</th></tr></thead><tbody id="positionsBody"></tbody></table></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><p class="eyebrow">RESEARCH QUEUE</p><h2>待验证假设</h2></div><span class="count">证据优先</span></div>
+            <div id="hypothesisList" class="hypothesis-list"></div>
+          </article>
+        </section>
+      </div>
+
+      <div id="researchView" class="view placeholder-view"></div>
+      <div id="strategyView" class="view placeholder-view"></div>
+      <div id="reportsView" class="view placeholder-view"></div>
+      <div id="graphsView" class="view placeholder-view"></div>
+      <div id="chatView" class="view placeholder-view"></div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

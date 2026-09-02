@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">RoofTop Investment Harness</title>
+  <desc id="desc">A person leaping from a rooftop while secured by a safety harness and tether.</desc>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="13" fill="#071019" stroke="#2d5d63" stroke-width="3"/>
+  <path d="M7 47h21v10H7zM9 42h19v5H9z" fill="#163f38" stroke="#78e3e5" stroke-width="2"/>
+  <path d="M16 42v-6" fill="none" stroke="#31d6a0" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M16 36c9 0 13 13 25 4" fill="none" stroke="#31d6a0" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="43" cy="20" r="4.2" fill="#edf6f7"/>
+  <path d="M40 26l-5 10m6-9 8 6m-10-5-8-2m5 10-7 9m7-9 10 8" fill="none" stroke="#edf6f7" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 32l7 3-2 5-7-3z" fill="#31d6a0" stroke="#78e3e5" stroke-width="1.5"/>
+  <path d="M43 35c7-1 10-5 13-11" fill="none" stroke="#f5bc60" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 3"/>
+</svg>

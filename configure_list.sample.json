@@ -1,0 +1,14 @@
+[
+  {
+    "model": "deepseek-v4-flash",
+    "api_model": "<PlaceHolder>",
+    "api_key": "<your API KEY>",
+    "base_url": "<PlaceHolder>"
+  },
+  {
+    "model": "qwen3.8-max",
+    "api_model": "<PlaceHolder>",
+    "api_key": "<your API KEY>",
+    "base_url": "<PlaceHolder>"
+  }
+]
