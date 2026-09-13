@@ -1,5 +1,7 @@
 # RoofTop Investment Harness（天台智投）
 
+联合开发项目：[tianyuzong/rooftop](https://github.com/tianyuzong/rooftop)。本项目与该仓库是同一个项目的不同组成部分，均在联合开发中，底层框架一致。
+
 RoofTop Investment Harness 是一个面向个人研究者的 local-first 二级市场分析平台。它把行情、财报、公告、新闻、社交信息、事件图、因子、策略与风控放在同一个本地工作台中，只提供研究和人工复核提示，不连接券商，也不执行交易。
 
 仓库不包含任何真实 API Key、账号凭证、个人持仓、数据库、行情缓存或模型权重。Logo 中跃出屋顶的人由安全绳和保护带连接，表达“承担市场风险，但始终保护本金”的产品含义。
